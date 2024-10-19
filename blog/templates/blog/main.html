@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Plans - Drug Interaction Learning Hub</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: rgb(19, 18, 18);
+            padding: 15px 0;
+            text-align: center;
+            width: 100%;
+        }
+        h1 {
+            margin: 0;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Spacing below the button */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px; /* Limit width for better readability */
+        }
+        .lesson-button {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 15px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .lesson-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .lesson-button:hover img {
+            transform: scale(1.1);
+        }
+        .lesson-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .lesson-button:hover .lesson-title {
+            transform: translateY(0);
+        }
+        .text-banner {
+            position: absolute;
+            top: 10px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.3s;
+            pointer-events: none; /* Prevent interaction */
+        }
+        .lesson-button:hover .text-banner {
+            opacity: 1; /* Show on hover */
+        }
+        footer {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lesson Plans</h1>
+    <p>Click on a lesson plan to learn more!</p>
+    <a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> <!-- Home Page Button -->
+</header>
+
+<div class="content">
+    <div class="lesson-button">
+        <img src="{% static 'blog/images/Designer.jpg' %}" alt="Drug Development" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="lesson-title">Drug Interactions and Risks</div>
+        <a href="{% url 'lesson_plan' %}" class="button" style="display: none;">Learn More</a>
+    </div>
+
+    <div class="lesson-button">
+        <img src="{% static 'blog/images/Designer2.jpg' %}" alt="Lesson Plan 2">
+        <div class="lesson-title">Overview of stages of Drug Development and Resources</div>
+        <a href="{% url 'overview_stages' %}" class="button" style="display: none;">Learn More</a>
+    </div>
+    
+    <div class="lesson-button">
+        <img src="{% static 'blog/images/Designer3.jpg' %}" alt="Lesson Plan 3">
+        <div class="lesson-title">Preventing Substance Abuse</div>
+        <a href="{% url 'substance_abuse' %}" class="button" style="display: none;">Learn More</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const lessonButtons = document.querySelectorAll('.lesson-button');
+    
+    lessonButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const lessonLink = this.querySelector('a');
+            window.location.href = lessonLink.href; // Navigate to the lesson page
+        });
+    });
+</script>
+
+</body>
+</html>

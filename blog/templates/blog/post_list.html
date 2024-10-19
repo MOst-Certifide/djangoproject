@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Interaction Learning Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            padding: 15px 0; /* Adjust padding */
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        .top-component {
+            margin: 0; /* Remove margin */
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #39ff14; /* Neon Green */
+            border-radius: 10px;
+            padding: 15px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Allow components to grow equally */
+        }
+        .top-component:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .bottom-container {
+            background-color: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            padding: 15px; /* Reduced padding */
+            margin: 0; /* Remove margin */
+            flex: 2; /* Allow this section to take more space */
+        }
+        .bottom-component {
+            margin: 0; /* Remove margin */
+            padding: 15px;
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .bottom-component:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #ff007f; /* Neon Pink */
+        }
+        p {
+            color: #333; /* Darker text for readability */
+        }
+        a {
+            color: #39ff14; /* Neon Green */
+            font-weight: bold;
+        }
+        a:hover {
+            color: #ff007f; /* Neon Pink on hover */
+            text-decoration: underline;
+        }
+        .btn {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+        }
+        .icon {
+            font-size: 30px;
+            color: #39ff14; /* Neon Green */
+            margin-right: 10px;
+        }
+        footer {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Drug Interaction Learning Hub</h1>
+    <p>Making Healthcare Education Accessible and Fun</p>
+</header>
+
+<div class="container flex-grow-1 d-flex flex-column">
+    <div class="row flex-fill">
+        <div class="col-md-6 top-component">
+            <h2><i class="fas fa-pills icon"></i>Understanding Drug Interactions</h2>
+            <p>Learn about how different medications interact and their potential side effects. Knowledge is key to safe medication use!</p>
+            <a href="https://go.drugbank.com" class="btn">Learn More</a>
+        </div>
+        <div class="col-md-6 top-component">
+            <h2><i class="fas fa-question-circle icon"></i>Interactive Quizzes</h2>
+            <p>Test your knowledge on drug interactions and safe medication practices with our fun lessons and quizzes!</p>
+            <a href="/main" class="btn">Take a Quiz</a>
+        </div>
+    </div>
+
+    <div class="row flex-fill">
+        <div class="col-md-6 top-component">
+            <h2><i class="fas fa-gamepad icon"></i>Games & Challenges</h2>
+            <p>Engage with our interactive games designed to teach you about drug uses, interactions, and side effects.</p>
+            <a href="#games" class="btn">Play Games</a>
+        </div>
+        <div class="col-md-6 top-component">
+            <h2><i class="fas fa-file-alt icon"></i>Informative Articles</h2>
+            <p>Access a library of articles detailing drug interactions, uses, and side effects to enhance your understanding.</p>
+            <a href="https://go.drugbank.com/data_packages" class="btn">Read Articles</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

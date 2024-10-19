@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Plan: Understanding Drugs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Spacing below the button */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-y: auto; /* Allow scrolling if needed */
+            flex-direction: column; /* Stack content vertically */
+        }
+        .lesson-list {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove default padding */
+            width: 100%;
+            max-width: 600px; /* Match the width for visual consistency */
+            margin: 0; /* Remove margin */
+        }
+        .lesson-item {
+            border: 2px solid #39ff14; /* Neon Green */
+            border-radius: 10px;
+            padding: 15px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px 0; /* Space between items */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .lesson-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px; /* Space above the button */
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+        }
+        h2 {
+            color: #ff007f; /* Neon Pink */
+        }
+        footer {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Drug Education Lesson Plan!</h1>
+    <p>Click anywhere to learn about drug interactions, overdose risks, and how to recognize the signs of overdose.</p>
+    <a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> <!-- Home Page Button -->
+</header>
+
+<div class="content" onclick="showNextPoint()">
+    <ul class="lesson-list" id="lessonList"></ul>
+    <button class="btn" id="startButton" onclick="window.location.href='{% url 'drug_interactions' %}'" style="display:none;">Start the Lesson!</button>
+</div>
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    let currentPoint = 0;
+    const points = [
+        "Understand what drug interactions are and their effects.",
+        "Learn about the risks associated with drug overdoses.",
+        "Identify common signs of overdose to help others."
+    ];
+    const lessonList = document.getElementById('lessonList');
+    const startButton = document.getElementById('startButton');
+
+    function showNextPoint() {
+        if (currentPoint < points.length) {
+            // Create a new list item
+            const newItem = document.createElement('li');
+            newItem.className = 'lesson-item';
+            newItem.innerHTML = `<h2>Lesson Point ${currentPoint + 1}</h2><p>${points[currentPoint]}</p>`;
+            lessonList.appendChild(newItem);
+
+            currentPoint++;
+            // Show the start button after last point
+            if (currentPoint === points.length) {
+                startButton.style.display = 'block';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

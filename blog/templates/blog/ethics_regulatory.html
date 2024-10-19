@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Considerations and Regulatory Bodies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .point {
+            background: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 600px; /* Limit width for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff007f; /* Neon Pink */
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #333; /* Darker text for readability */
+            text-align: center;
+        }
+        footer {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .quiz-container {
+            background: #ffefff;
+            border: 2px solid #ff007f;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+        }
+        .check-button {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+        }
+        .check-button:hover {
+            background-color: #ff007f; /* Neon Pink on hover */
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #ff007f;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ethical Considerations in Drug Trials</h1>
+    <p>Understand the ethics that shape drug development!</p>
+    <a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> <!-- Home Page Button -->
+</header>
+
+<div class="content">
+    <h2>Key Ethical Considerations</h2>
+    <ul>
+        <li><strong>Informed Consent:</strong>
+            <ul>
+                <li>Participants must be fully informed about the risks and benefits of the trial to provide valid consent.</li>
+                <li>This includes clear explanations of the study's purpose, procedures, and potential impacts.</li>
+                <li>It is essential for maintaining trust and ethical integrity in research.</li>
+            </ul>
+        </li>
+        <li><strong>Placebo Use:</strong>
+            <ul>
+                <li>The use of placebos must be justified, especially when effective treatments are available.</li>
+                <li>Researchers need to ensure participants are not harmed and are transparent about the use of placebos.</li>
+                <li>Transparency is critical to maintaining participant trust.</li>
+            </ul>
+        </li>
+        <li><strong>Vulnerable Populations:</strong>
+            <ul>
+                <li>Extra care must be taken to protect vulnerable groups from exploitation during trials.</li>
+                <li>This includes ensuring equitable access to research benefits and implementing additional safeguards against coercion.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Regulatory Bodies Involved</h2>
+    <p>Several organizations oversee drug development:</p>
+    <div class="point">
+        <h4>FDA (Food and Drug Administration)</h4>
+        <p>Responsible for approving new drugs in the U.S., ensuring their safety and efficacy.</p>
+    </div>
+    <div class="point">
+        <h4>EMA (European Medicines Agency)</h4>
+        <p>Oversees drug approval in the European Union, providing guidance and assessment of new treatments.</p>
+    </div>
+    <div class="point">
+        <h4>WHO (World Health Organization)</h4>
+        <p>Sets international standards for drug safety and efficacy, working towards global health improvements.</p>
+    </div>
+
+    <div class="quiz-container">
+        <h2>Quick Quiz</h2>
+        <form id="quiz-form">
+            <div>
+                <p>1. What is the primary purpose of informed consent?</p>
+                <input type="radio" name="question1" value="1"> To ensure participants are aware of the trial's nature.<br>
+                <input type="radio" name="question1" value="2"> To allow participants to withdraw from the study anytime.<br>
+                <input type="radio" name="question1" value="3"> To guarantee participants receive compensation.<br>
+                <button type="button" class="check-button" onclick="checkAnswer('question1', '1')">Check Answer</button>
+                <div class="result" id="result-question1"></div>
+            </div>
+            <div>
+                <p>2. Why is it important to consider vulnerable populations in drug trials?</p>
+                <input type="radio" name="question2" value="1"> They may lack the ability to provide informed consent.<br>
+                <input type="radio" name="question2" value="2"> They could be at greater risk of exploitation.<br>
+                <input type="radio" name="question2" value="3"> Both 1 and 2.<br>
+                <button type="button" class="check-button" onclick="checkAnswer('question2', '3')">Check Answer</button>
+                <div class="result" id="result-question2"></div>
+            </div>
+            <div>
+                <p>3. What role does the FDA play in drug development?</p>
+                <input type="radio" name="question3" value="1"> It approves new drugs for public use.<br>
+                <input type="radio" name="question3" value="2"> It conducts drug trials.<br>
+                <input type="radio" name="question3" value="3"> It provides funding for research.<br>
+                <button type="button" class="check-button" onclick="checkAnswer('question3', '1')">Check Answer</button>
+                <div class="result" id="result-question3"></div>
+            </div>
+        </form>
+    </div>
+
+    <button class="button" onclick="location.href='{% url 'advances_resources' %}'">Learn More</button> <!-- Learn More Button -->
+</div>
+
+<footer>
+    <p>&copy; 2024 Drug Development Learning Hub. All Rights Reserved.</p>
+</footer>
+</footer>
+
+<script>
+    function checkAnswer(questionName, correctAnswer) {
+        const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
+        const resultDiv = document.getElementById(`result-${questionName}`);
+
+        if (selectedAnswer) {
+            if (selectedAnswer.value === correctAnswer) {
+                resultDiv.innerText = "Correct! Great job.";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.innerText = "Wrong answer. Try again!";
+                resultDiv.style.color = "red";
+            }
+        } else {
+            resultDiv.innerText = "Please select an answer.";
+            resultDiv.style.color = "orange";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Advances and Resources for Further Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            width: 100%;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .section {
+            background: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            width: 90%;
+            max-width: 800px; /* Limit width for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #ff007f; /* Neon Pink */
+            margin-bottom: 15px;
+        }
+        p {
+            color: #333; /* Darker text for readability */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #39ff14; /* Neon Green */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #ff007f; /* Neon Pink on hover */
+        }
+        .interactive {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px dashed #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .interactive:hover {
+            background-color: #f0f0f0; /* Light grey on hover */
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #39ff14; /* Neon Green */
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #e0ffe0; /* Light Green */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Recent Advances in Drug Development</h1>
+    <p>Explore the exciting world of medicines!</p>
+    <a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a>
+</header>
+
+<div class="section" id="advances-resources">
+    <h2>Exciting Advances</h2>
+    <p>The world of medicine is always changing! Here are some cool new ideas:</p>
+    <ul>
+        <li><strong>Personalized Medicine:</strong> Imagine getting medicine just for you, based on your unique genes!</li>
+        <li><strong>Biologics:</strong> Using special living things, like cells, to create treatments.</li>
+        <li><strong>Artificial Intelligence:</strong> Computers that help scientists discover new drugs faster and cheaper!</li>
+    </ul>
+
+    <h2>Fun Resources to Explore!</h2>
+    <p>Want to learn more? Check out these cool links:</p>
+    <ul>
+        <li><a href="https://www.fda.gov/ForPatients/Approvals/Drugs/default.htm" target="_blank">🚀 FDA Drug Approval Process</a></li>
+        <li><a href="https://www.clinicaltrials.gov/" target="_blank">🔍 ClinicalTrials.gov</a></li>
+        <li><a href="https://www.who.int/health-topics/medicines" target="_blank">🌍 WHO Medicines</a></li>
+    </ul>
+
+    <h2>Interactive Learning!</h2>
+    <div class="interactive" onclick="toggleMessage('message1')">
+        🎉 Click here to learn about Personalized Medicine!
+    </div>
+    <div class="hidden-message" id="message1">
+        Personalized medicine tailors treatments specifically for individuals, taking into account their genetic makeup. This means that two people with the same illness can receive different treatments!
+    </div>
+
+    <div class="interactive" onclick="toggleMessage('message2')">
+        🌱 Click here to discover how nature helps in medicine!
+    </div>
+    <div class="hidden-message" id="message2">
+        Many medicines come from plants and animals. For example, aspirin, a common pain reliever, was originally derived from the bark of willow trees!
+    </div>
+
+    <div class="interactive" onclick="toggleMessage('message3')">
+        🤖 Click here to find out how AI is changing medicine!
+    </div>
+    <div class="hidden-message" id="message3">
+        Artificial Intelligence helps researchers analyze vast amounts of data quickly, leading to faster drug discoveries and safer treatment options!
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 Drug Ethics Resource</p>
+</footer>
+
+<script>
+    function toggleMessage(messageId) {
+        const message = document.getElementById(messageId);
+        if (message.style.display === "none" || message.style.display === "") {
+            message.style.display = "block";
+        } else {
+            message.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

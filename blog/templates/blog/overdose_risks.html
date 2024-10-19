@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdose Risks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Spacing below the button */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .point {
+            background: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 600px; /* Limit width for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative; /* Allow absolute positioning of content */
+            overflow: hidden; /* Hide overflow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .point:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .point-content {
+            color: #333; /* Darker text for readability */
+            text-align: center;
+            font-weight: bold; /* Make the text bold */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Smooth transition for opacity */
+            position: absolute; /* Position content absolutely */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+        }
+        .point-title {
+            font-weight: bold; /* Make title bold */
+            transition: opacity 0.3s ease; /* Smooth transition for title opacity */
+        }
+        .point:hover .point-content {
+            opacity: 1; /* Show content on hover */
+        }
+        .point:hover .point-title {
+            opacity: 0; /* Hide title on hover */
+        }
+        h2 {
+            color: #ff007f; /* Neon Pink */
+            text-align: center;
+            font-weight: bold; /* Make the text bold */
+        }
+        .button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold; /* Make the button text bold */
+        }
+        .button:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+        }
+        footer {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Overdose Risks</h1>
+    <p>Understand the risks of overdose and how to prevent them!</p>
+    <a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> 
+</header>
+
+<div class="content">
+    <div class="point">
+        <h2 class="point-title">What Is an Overdose?</h2>
+        <div class="point-content">
+            <p>An overdose occurs when a person takes more than the medically recommended dose of a drug, which can lead to harmful effects.</p>
+        </div>
+    </div>
+    <div class="point">
+        <h2 class="point-title">Common Signs of Overdose</h2>
+        <div class="point-content">
+            <p>Signs may include difficulty breathing, loss of consciousness, and extreme confusion. Recognizing these symptoms can save lives!</p>
+        </div>
+    </div>
+    <div class="point">
+        <h2 class="point-title">Combining Drugs Increases Risk</h2>
+        <div class="point-content">
+            <p>Mixing drugs, whether prescription or recreational, can significantly increase the risk of overdose. Always consult a healthcare professional.</p>
+        </div>
+    </div>
+    <div class="point">
+        <h2 class="point-title">What to Do in Case of an Overdose</h2>
+        <div class="point-content">
+            <p>Call emergency services immediately if you suspect an overdose. Prompt action can make a difference in outcomes.</p>
+        </div>
+    </div>
+
+    <button class="button" onclick="location.href='{% url 'signs_of_overdose' %}'">Go to Signs of Overdose</button>
+</div>
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

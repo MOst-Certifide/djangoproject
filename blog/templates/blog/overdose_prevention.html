@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventing Overdose: What You Need to Know</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff007f; /* Neon Pink */
+            margin-bottom: 20px;
+        }
+        .card {
+            display: inline-block;
+            background: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            transition: transform 0.3s;
+            vertical-align: top; /* Align cards at the top */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+        .interactive {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            border: none;
+            border-radius: 25px; /* Rounder corners */
+            padding: 12px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .interactive:hover {
+            background-color: #ff007f; /* Neon Pink */
+            transform: scale(1.05); /* Slightly larger on hover */
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #39ff14; /* Neon Green */
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #e0ffe0; /* Light Green */
+            transition: all 0.3s ease;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .bounce {
+            display: block;
+            animation: bounce 0.5s ease forwards; /* Bounce animation */
+        }
+        .video-container {
+            margin: 20px 0;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 25px; /* Rounder corners */
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Spacing above the button */
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .home-button:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+            transform: scale(1.05); /* Slightly larger on hover */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Preventing Overdose: What You Need to Know</h1>
+
+<div class="card">
+    <h2>Understanding Overdose</h2>
+    <button class="interactive" onclick="toggleMessage('message1', this)">Learn More</button>
+    <div class="hidden-message" id="message1">
+        An overdose occurs when a person takes more than the recommended amount of a substance, leading to dangerous health effects.
+    </div>
+</div>
+
+<div class="card">
+    <h2>Signs of Overdose</h2>
+    <button class="interactive" onclick="toggleMessage('message2', this)">Learn More</button>
+    <div class="hidden-message" id="message2">
+        Common signs of overdose include:
+        <ul>
+            <li>Unresponsiveness or inability to wake up</li>
+            <li>Slow or irregular breathing</li>
+            <li>Blue or purple skin, especially on lips and nails</li>
+            <li>Choking or gurgling sounds</li>
+            <li>Severe confusion or disorientation</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card">
+    <h2>How to Prevent Overdose</h2>
+    <button class="interactive" onclick="toggleMessage('message3', this)">Learn More</button>
+    <div class="hidden-message" id="message3">
+        Tips to prevent overdose:
+        <ul>
+            <li>Always follow the prescribed dosage from a healthcare provider.</li>
+            <li>Avoid mixing substances, especially alcohol with other drugs.</li>
+            <li>Keep track of how much you or others are taking.</li>
+            <li>Educate yourself and others about the risks of substance use.</li>
+            <li>Be aware of your own tolerance and the potency of the substance.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card">
+    <h2>What to Do if Someone is Overdosing</h2>
+    <button class="interactive" onclick="toggleMessage('message4', this)">Learn More</button>
+    <div class="hidden-message" id="message4">
+        Steps to take:
+        <ul>
+            <li>Call emergency services immediately.</li>
+            <li>Try to keep the person awake and sitting up.</li>
+            <li>If they are unresponsive, place them in the recovery position.</li>
+            <li>Stay with the person until help arrives.</li>
+            <li>If you have naloxone (Narcan), administer it if trained to do so.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="video-container">
+    <h2>Watch This Video on Overdose Awareness</h2>
+    <iframe width="100%" height="315"  src="https://www.youtube.com/embed/PMGVNlcppAk
+    " frameborder="0" allowfullscreen></iframe>
+</div>
+
+<a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> <!-- Home Page Button -->
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function toggleMessage(messageId, button) {
+        const message = document.getElementById(messageId);
+        const isVisible = message.style.display === "block";
+
+        // Toggle visibility
+        message.style.display = isVisible ? "none" : "block";
+
+        // Add or remove bounce animation
+        if (!isVisible) {
+            message.classList.add('bounce');
+        } else {
+            message.classList.remove('bounce');
+        }
+    }
+</script>
+
+</body>
+</html>

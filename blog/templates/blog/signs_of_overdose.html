@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signs of Overdose - Matching Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        .home-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Spacing below the button */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .game-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px; /* Limit width for better readability */
+            margin: 20px 0;
+        }
+        .titles, .descriptions {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+        .card {
+            background: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 150px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            user-select: none; /* Prevent text selection while dragging */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .dropzone {
+            background: #ffffff; /* White background for drop zones */
+            border: 2px dashed #39ff14; /* Neon Green */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h2 {
+            color: #ff007f; /* Neon Pink */
+            text-align: center;
+            font-weight: bold;
+        }
+        .button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+        }
+        footer {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Signs of Overdose - Matching Game</h1>
+    <p>Match the signs of overdose with their descriptions!</p>
+    <a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> 
+</header>
+
+<div class="content">
+    <div class="game-container">
+        <div class="titles">
+            <div class="card" draggable="true" data-description="Difficulty Breathing">Difficulty Breathing</div>
+            <div class="card" draggable="true" data-description="Loss of Consciousness">Loss of Consciousness</div>
+            <div class="card" draggable="true" data-description="Extreme Confusion">Extreme Confusion</div>
+            <div class="card" draggable="true" data-description="Unresponsiveness">Unresponsiveness</div>
+        </div>
+        
+        <div class="descriptions">
+            <div class="dropzone" data-description="Difficulty Breathing">A state where a person does not react to stimuli and cannot be awakened.</div>
+            <div class="dropzone" data-description="Unresponsiveness">This indicates a severe state of mental disarray or inability to think clearly.</div>
+            <div class="dropzone" data-description="Extreme Confusion">A person may struggle to take in air, which can be life-threatening.</div>
+            <div class="dropzone" data-description="Loss of Consciousness">This can be a sign of opioid use, where pupils are very small.</div>
+        </div>
+    </div>
+
+    <button class="button" onclick="checkMatches()">Check Matches</button>
+    <a href="https://www.flexiquiz.com/SC/N/6cf5b363-1e7a-4b01-8491-2406959c1425" class="button">Next Page: Quiz</a>
+</div>
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const cards = document.querySelectorAll('.card');
+    const dropzones = document.querySelectorAll('.dropzone');
+
+    cards.forEach(card => {
+        card.addEventListener('dragstart', dragStart);
+    });
+
+    dropzones.forEach(dropzone => {
+        dropzone.addEventListener('dragover', dragOver);
+        dropzone.addEventListener('drop', drop);
+    });
+
+    function dragStart(e) {
+        e.dataTransfer.setData('text/plain', e.target.innerHTML);
+        e.dataTransfer.setData('description', e.target.dataset.description);
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function drop(e) {
+        e.preventDefault();
+        const cardText = e.dataTransfer.getData('text/plain');
+        const cardDescription = e.dataTransfer.getData('description');
+
+        if (e.target.dataset.description === cardDescription) {
+            e.target.innerHTML = cardText;
+            e.target.classList.add('matched');
+            e.target.style.cursor = 'default'; // Disable further dragging
+
+            // Hide the original card
+            const cardToHide = Array.from(cards).find(card => card.innerHTML === cardText);
+            cardToHide.style.display = 'none'; // Hide the original card
+        }
+    }
+
+    function checkMatches() {
+        const matchedCards = document.querySelectorAll('.matched');
+        if (matchedCards.length === 4) {
+            alert("Congratulations! You've matched all pairs!");
+        } else {
+            alert("Keep trying! Not all pairs are matched.");
+        }
+    }
+</script>
+
+</body>
+</html>

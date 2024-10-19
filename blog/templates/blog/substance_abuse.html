@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Substance Abuse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff007f; /* Neon Pink */
+        }
+        .section {
+            background: #ffefff; /* Light Pink */
+            border: 2px solid #ff007f; /* Neon Pink */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .interactive {
+            background-color: #39ff14; /* Neon Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .interactive:hover {
+            background-color: #ff007f; /* Neon Pink */
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #39ff14; /* Neon Green */
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #e0ffe0; /* Light Green */
+        }
+        .home-button, .next-button {
+            background-color: #ff007f; /* Neon Pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px; /* Spacing above the button */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .home-button:hover, .next-button:hover {
+            background-color: #39ff14; /* Neon Green on hover */
+        }
+    </style>
+</head>
+<body>
+
+<a href="{% url 'post_list' %}" class="home-button">Go to Home Page</a> <!-- Home Page Button -->
+
+<h1>Understanding Substance Abuse</h1>
+
+<div class="section">
+    <h2>What is Substance Abuse?</h2>
+    <button class="interactive" onclick="toggleMessage('message1')">Learn More</button>
+    <div class="hidden-message" id="message1">
+        Substance abuse involves using drugs or alcohol in ways that are harmful to one’s health and wellbeing. 
+        This includes substances like alcohol, marijuana, prescription medications, and illegal drugs. 
+        It's important to understand that not all drug use is abuse; it becomes a problem when it negatively affects your life.
+    </div>
+</div>
+
+<div class="section">
+    <h2>The Impact on the Body</h2>
+    <button class="interactive" onclick="toggleMessage('message2')">Learn More</button>
+    <div class="hidden-message" id="message2">
+        Using substances can harm the brain, which continues to develop until the mid-20s. 
+        This can lead to memory problems and difficulty focusing in school. 
+        Substance abuse can also cause serious health issues, like heart problems, liver damage, and weakened immune systems. 
+        The body’s ability to heal from injuries can also be affected.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Emotional and Mental Effects</h2>
+    <button class="interactive" onclick="toggleMessage('message3')">Learn More</button>
+    <div class="hidden-message" id="message3">
+        Drugs and alcohol can change our emotions, leading to sadness, anger, or even confusion. 
+        They can affect how we think and make decisions. 
+        Over time, some individuals may become addicted, feeling they need substances to cope with daily life. 
+        This can lead to a cycle of dependence that is hard to break.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Peer Pressure and Choices</h2>
+    <button class="interactive" onclick="toggleMessage('message4')">Learn More</button>
+    <div class="hidden-message" id="message4">
+        It’s important to recognize peer pressure and learn to say “no.” 
+        True friends respect your choices, and practicing responses can help empower you. 
+        Remember, you can always suggest fun activities that don’t involve substances, like sports or movies. 
+        Building self-confidence helps resist pressure from peers.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Healthy Alternatives</h2>
+    <button class="interactive" onclick="toggleMessage('message5')">Learn More</button>
+    <div class="hidden-message" id="message5">
+        Instead of using substances, you can engage in sports, arts, or hobbies. 
+        Activities like hiking, playing music, or drawing can be fun and fulfilling. 
+        These activities promote wellbeing and help cope with stress. 
+        Finding a supportive group of friends who enjoy the same hobbies can also be a great way to stay healthy.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Seeking Help</h2>
+    <button class="interactive" onclick="toggleMessage('message6')">Learn More</button>
+    <div class="hidden-message" id="message6">
+        Talking about feelings is important. 
+        It’s okay to ask for help if you’re feeling overwhelmed or pressured. 
+        Trusted adults, like parents, teachers, or counselors, can provide support and guidance. 
+        Remember, seeking help is a sign of strength, not weakness.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Myths vs. Facts</h2>
+    <button class="interactive" onclick="toggleMessage('message7')">Learn More</button>
+    <div class="hidden-message" id="message7">
+        Myth: “Everyone is doing it.”
+        Fact: Many kids choose not to use substances and focus on healthy lifestyles.
+        Myth: “Substance use is safe in small amounts.”
+        Fact: Even small amounts can be harmful, especially for developing bodies and brains.
+    </div>
+</div>
+
+<a href="{% url 'overdose_prevention' %}" class="next-button">Go to Overdose Prevention</a> <!-- Button to Overdose Prevention -->
+
+<footer>
+    <p>&copy; 2024 Drug Interaction Learning Hub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function toggleMessage(messageId) {
+        const message = document.getElementById(messageId);
+        message.style.display = (message.style.display === "none" || message.style.display === "") ? "block" : "none";
+    }
+</script>
+
+</body>
+</html>
