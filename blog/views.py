@@ -35,3 +35,6 @@ def substance_abuse(request):
 
 def overdose_prevention(request):
     return render(request, 'blog/overdose_prevention.html')
+
+def game_view(request):
+    return render(request, 'blog/game.html')

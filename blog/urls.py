@@ -15,4 +15,5 @@ urlpatterns = [
     path('advances-resources/', views.advances_resources, name='advances_resources'),
     path('substance-abuse/', views.substance_abuse, name='substance_abuse'),
     path('overdose-prevention/', views.overdose_prevention, name='overdose_prevention'),
+    path('game/', views.game_view, name='game'),
 ]
